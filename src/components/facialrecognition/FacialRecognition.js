@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import * as faceapi from 'face-api.js'
-import * as tf from '@tensorflow/tfjs';
 import Webcam from 'react-webcam';
 
 const videoConstraints = {
