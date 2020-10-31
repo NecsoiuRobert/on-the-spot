@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import FacialRecognition from './components/facialrecognition/FacialRecognition';
 class App extends Component {
   render() {
     return (
@@ -14,6 +15,7 @@ class App extends Component {
             <Route exact path='/' component={Dashboard} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/facial' component={FacialRecognition} />
           </Switch>
         </div>
       </BrowserRouter>
