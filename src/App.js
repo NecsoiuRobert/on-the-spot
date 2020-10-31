@@ -7,6 +7,8 @@ import SignUp from './components/auth/SignUp';
 import FacialRecognition from './components/facialrecognition/FacialRecognition';
 import addResume from './components/dashboard/addResume';
 import SelectDisability from './components/auth/SelectDisability'
+import Job from './components/job/job';
+import addJob from './components/job/addJob'
 
 class App extends Component {
   render() {
