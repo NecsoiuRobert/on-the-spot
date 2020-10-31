@@ -9,6 +9,7 @@ import addResume from './components/dashboard/addResume';
 import SelectDisability from './components/auth/SelectDisability'
 import Job from './components/job/job';
 import addJob from './components/job/addJob'
+import listResume from './components/dashboard/listResume'
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path='/addJob' component={addJob} />
             <Route path='/onboarding' component={SelectDisability} />
             <Route path='/resume' component={addResume} />
+            <Route path='/listResume' component={listResume} />
 
           </Switch>
         </div>
