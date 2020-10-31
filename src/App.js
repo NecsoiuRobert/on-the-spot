@@ -18,6 +18,8 @@ class App extends Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/facial' component={FacialRecognition} />
             <Route path='/onboarding' component={SelectDisability} />
+            <Route path='/job' component={Job} />
+            <Route path='/addJob' component={addJob} />
           </Switch>
         </div>
       </BrowserRouter>
