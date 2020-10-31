@@ -5,7 +5,9 @@ import Dashboard from './components/dashboard/Dashboard';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import FacialRecognition from './components/facialrecognition/FacialRecognition';
+import addResume from './components/dashboard/addResume';
 import SelectDisability from './components/auth/SelectDisability'
+
 class App extends Component {
   render() {
     return (
@@ -17,7 +19,8 @@ class App extends Component {
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             <Route path='/facial' component={FacialRecognition} />
-            <Route path='/onboarding' component={SelectDisability} />
+       <Route path='/onboarding' component={SelectDisability} />
+       <Route path='/resume' component={addResume} />
           </Switch>
         </div>
       </BrowserRouter>
