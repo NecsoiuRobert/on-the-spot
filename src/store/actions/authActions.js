@@ -29,6 +29,8 @@ export const signUp = (newUser) => {
             firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
             .then( (resp) => {
                 return firestore.collection('users').doc(resp.user.uid).set({
+                    email: newUser.email,
+                    password: newUser.password,
                     firstName: newUser.firstName,
                     lastName: newUser.lastName,
                     initials: newUser.firstName[0] + newUser.lastName[0]
@@ -39,4 +41,18 @@ export const signUp = (newUser) => {
                 dispatch({type:'SIGNUP_ERROR', err});
             });
     }
+}
+
+export const facialRegister = (label,userId) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const firebase = getFirebase();
+        const firestore = getFirestore();
+            return firestore.collection('users').doc(userId).set({
+                faceLabel:Object.assign({},label)
+            }, { merge: true }).then(() => {
+            dispatch({type: 'REGISTERED_FACE_SUCCESS'})
+        }).catch((err) => {
+            dispatch({type:'REGISTERED_FACE_FAIL', err});
+        });
+}
 }
