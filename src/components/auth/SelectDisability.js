@@ -24,44 +24,48 @@ class SelectDisability extends Component {
     return (
         <div className="container">
         <TextToSpeech content={'Please select your disability'} />
-            <div className="row">
+            <div className="row card" style={{marginTop:'50px', marginBottom:'50px'}}>
+            <div className="col-lg-12">
             <p>{this.state.content}</p>
-                <div className="col-lg-12">
-                </div>
             </div>
-            <div className="row card" id="bla">
-            <div className="row"></div>
-            <p id="disability-text">Disability</p>
-                <Link to={'/signup/deaf'} key="deaf">
-                    <div className="dcol-lg-4 col-sm-12">
+            <div className="col-lg-12 text-center">
+            <p id="disability-text text-center">Disability</p>
+            </div>
+            </div>
+            
+           
+            <div className="parent row card" style={{marginBottom:'100px', padding:'50px'}}>
+
+                    <div className="circle-col">
                         {/* <p>I cannot speak</p> */}
+                        <Link to={'/signup/deaf'} key="deaf">
                         <div className="circle-container" >
                         <img src={DeafIcon} alt="" className="disability-icon circle-icon" id="deaf-circle"/>
                         </div>
-                        
+                        </Link>
                     </div>
-                </Link>
+                
+                <div className="circle-col">
                 <Link to={'/signup/blind'} key="blind">
-                <div className="col-lg-4 col-sm-12">
                         <div className="circle-container" >
                         <img src={BlindIcon} alt="" className="disability-icon circle-icon" id="blind-circle"/>
                         </div>
-                        
-                    </div>
                 </Link>
+                    </div>
+
+                <div className="circle-col">
                 <Link to={'/signup/mute'} key="mute">
-                <div className="col-lg-4 col-sm-12">
-                        <div className="rcircle-container" >
+                        <div className="circle-container" >
                         <img src={MuteIcon} alt="" className="disability-icon circle-icon" id="mute-circle"/>
                         </div>
-                        
+                        </Link>
                     </div>
+                    <Link to={'/signup/recruiter'} key={"recruiter"} style={{marginBottom:'50px'}}>
                 </Link>
-                
-                <SpeechToText changeContent={this.changeContent} timeSet ={3000}/>
-    
                 </div>
-            </div>
+          
+                <SpeechToText changeContent={this.changeContent} timeSet ={3000} style={{marginTop:'100px'}}/>
+                </div>
 
     )
     }

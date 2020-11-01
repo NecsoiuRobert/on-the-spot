@@ -52,7 +52,6 @@ export class FacialRecognitionRegister extends Component {
       let final = null;
       await this.getFullFaceDescription(img).then(result => {
         descriptor = result;
-        console.log(descriptor);
 
         const labeled = new faceapi.LabeledFaceDescriptors('eu',[descriptor]);
         if(labeled){
@@ -95,7 +94,7 @@ export class FacialRecognitionRegister extends Component {
         style={{margin:'auto', display:'block', marginBottom:'50px'}}
       />
 
-      <button class="btn btn-primary" onClick={this.matchFace}>Register</button>
+      <button className="btn btn-primary" onClick={this.matchFace}>Register</button>
 </div>
           </div>
         </div>
@@ -105,7 +104,6 @@ export class FacialRecognitionRegister extends Component {
     }
     
 const mapStateToProps = (state) => {
-    console.log(state.firebase.auth);
     return {
         auth: state.firebase.auth
     }

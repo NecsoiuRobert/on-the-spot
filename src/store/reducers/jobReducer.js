@@ -3,7 +3,7 @@ const initState = {
 }
 export const jobReducer = (state = initState, action) => {
     switch(action.type) {
-        case 'CREATE_JOB': console.log('created project',action.project);
+        case 'CREATE_JOB': console.log('created project',action.job);
             return state;
         case 'CREATE_JOB_ERROR': console.log('create project error', action.err);
             return state;

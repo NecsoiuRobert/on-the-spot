@@ -82,7 +82,6 @@ export class FacialRecognition extends Component {
     matchFace = async () => {
      // console.log(this.props.users);
       let usersToDescriptors = this.getLabeledFaceDescriptors();
-      console.log(usersToDescriptors);
       let final = null;
       
       const imageSrc = this.webcam.current.getScreenshot();
@@ -90,10 +89,8 @@ export class FacialRecognition extends Component {
         img.src = imageSrc;
         let descriptor;
         await this.getFullFaceDescription(img).then(result => {
-          console.log('aici');
           const faceMatcher = new faceapi.FaceMatcher(usersToDescriptors,minConfidence);
             if(faceMatcher){
-              console.log(faceMatcher);
               final = faceMatcher.findBestMatch(result);
               let user = this.props.users.filter(user => {
                 return user.email === final._label;
@@ -136,7 +133,7 @@ export class FacialRecognition extends Component {
           style={{margin:'auto', display:'block', marginBottom:'50px'}}
         />
   
-        <button class="btn btn-primary" onClick={this.matchFace}>Login</button>
+        <button className="btn btn-primary" onClick={this.matchFace}>Login</button>
 </div>
             </div>
           </div>

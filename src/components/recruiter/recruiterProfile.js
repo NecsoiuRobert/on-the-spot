@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../index.css'; 
 //import { colorForStatus } from './colorForStatus';
-import Jobs from './AllMyJobs';
+import Jobs from './RecruiterJobList';
 
 class Recruiter extends Component {
 

@@ -1,17 +1,15 @@
 
 export const  createJob = (job) => {
     return (dispatch, getState, {getFirebase, getFirestore }) => {
+        console.log(job);
         const firestore = getFirestore();
-        firestore.collection('projects').add({
+        firestore.collection('jobs').add({
             ...job,
-            authorFirstName: 'Net',
-            authorLastName: 'Ninja',
-            authorId: 12345,
-            createdAt: new Date()
+            
         }).then( () => {
-            dispatch({type:'CREATE_PROJECT', job});
+            dispatch({type:'CREATE_JOB', job});
         }).catch( (err) => {
-            dispatch({type: 'CREATE_PROJECT_ERROR', err})
+            dispatch({type: 'CREATE_JOB_ERROR', err})
         })
 
     }

@@ -33,7 +33,8 @@ export const signUp = (newUser) => {
                     password: newUser.password,
                     firstName: newUser.firstName,
                     lastName: newUser.lastName,
-                    initials: newUser.firstName[0] + newUser.lastName[0]
+                    initials: newUser.firstName[0] + newUser.lastName[0],
+                    type:newUser.type
                 })
             }).then(() => {
                 dispatch({type: 'SIGNUP_SUCCESS'})

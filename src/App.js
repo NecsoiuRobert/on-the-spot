@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import Dashboard from './components/dashboard/Dashboard';
+import DecideDashboard from './components/dashboard/DecideDashboard';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import FacialRecognition from './components/facialrecognition/FacialRecognition';
@@ -15,6 +15,7 @@ import FacialRecognitionRegister from './components/facialrecognition/FacialReco
 import listResume from './components/dashboard/listResume'
 import jobWithApplicants from './components/job/jobWithApplicants'
 import recruiterProfile from './components/recruiter/recruiterProfile'
+import RecruiterDashboard from './components/recruiter/RecruiterDashboard';
 
 class App extends Component {
   render() {
@@ -23,9 +24,9 @@ class App extends Component {
         <div className="App">
           <Navbar/>
           <Switch>
-            <Route exact path='/' component={Dashboard} />
+            <Route exact path='/' component={DecideDashboard} />
             <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
+            <Route path='/signup/:id' component={SignUp} />
             <Route path='/facial' component={FacialRecognition} />
             <Route path='/onboarding' component={SelectDisability} />
             <Route path='/job/:id' component={JobDetails} />
@@ -36,7 +37,8 @@ class App extends Component {
             <Route path='/listResume' component={listResume} />
             <Route path='/jobWithApplicants' component={jobWithApplicants} />
             <Route path='/recruiterProfile' component={recruiterProfile} />
-
+            <Route path='/job-rec' component={RecruiterDashboard} />
+            <Route path='/add-job' component={addJob} />
           </Switch>
         </div>
       </BrowserRouter>

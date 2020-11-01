@@ -9,7 +9,7 @@ const SpeechToText = ({changeContent, timeSet}) => {
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return null
   }
-
+  SpeechRecognition.startListening({continous:true});
   const onClickHandler = () => {
     SpeechRecognition.stopListening();
     changeContent(transcript);
@@ -17,8 +17,7 @@ const SpeechToText = ({changeContent, timeSet}) => {
 
   return (
     <div>
-      <button type="button" class="btn btn-primary" onClick={SpeechRecognition.startListening({continous:true})}>Start</button>
-      <button type="button" class="btn btn-primary" onClick={onClickHandler}>Stop</button>
+      <button type="button" className="btn btn-primary" onClick={onClickHandler}>Stop</button>
     </div>
   )
 }

@@ -16,16 +16,22 @@ class SignUp extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signUp(this.state);
+        console.log(this.props.id);
+        const signupState = {
+            ...this.state,
+            type:this.props.id
+        }
+        this.props.signUp(signupState);
 
     }
     render() {
-        const {auth, authError} = this.props;
+        const {auth, authError,id} = this.props;
+        console.log(id);
         if(auth.uid) {
             return <Redirect to='/' />
         }
         return (
-             <div className="container">
+             <div className="container" style={{marginTop:'50px'}}>
                 <div className="row">
                     <div className="col-sm-12 col-lg-4">
                     <form onSubmit={this.handleSubmit}>
@@ -46,7 +52,7 @@ class SignUp extends Component {
                                 <input type="text" id="firstName" className="form-control" onChange={this.handleChange}/>
                             </div>
                             <p>{ authError ? <p>{authError}</p> : null};</p>
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" className="btn btn-primary">Register</button>
 
                         </form>
                     </div>
@@ -55,10 +61,12 @@ class SignUp extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = (state,ownProps) => {
+    const id = ownProps.match.params.id;
     return {
         auth: state.firebase.auth,
-        authError: state.auth.authError
+        authError: state.auth.authError,
+        id: id
     }
 }
 const mapDispatchToProps = (dispatch) => {
