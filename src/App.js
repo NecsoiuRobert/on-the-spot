@@ -12,6 +12,10 @@ import addJob from './components/job/addJob'
 import JobSummary from './components/job/JobSummary';
 import JobList from './components/job/JobList'
 import FacialRecognitionRegister from './components/facialrecognition/FacialRecognitionRegister'
+import listResume from './components/dashboard/listResume'
+import jobWithApplicants from './components/job/jobWithApplicants'
+import recruiterProfile from './components/recruiter/recruiterProfile'
+
 class App extends Component {
   render() {
     return (
@@ -28,8 +32,11 @@ class App extends Component {
             <Route path='/addJob' component={addJob} />
             <Route path='/onboarding' component={SelectDisability} />
             <Route path='/resume' component={addResume} />
-            <Route path="/list" component={JobList} />
             <Route path="/regface" component={FacialRecognitionRegister} />
+            <Route path='/listResume' component={listResume} />
+            <Route path='/jobWithApplicants' component={jobWithApplicants} />
+            <Route path='/recruiterProfile' component={recruiterProfile} />
+
           </Switch>
         </div>
       </BrowserRouter>

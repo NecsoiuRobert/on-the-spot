@@ -1,11 +1,11 @@
 import React, { Component  } from 'react';
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router-dom'
-import DeafIcon from '../../img/deaf.png'
-import BlindIcon from '../../img/blind.png'
-import MuteIcon from '../../img/mute.png'
+import DeafIcon from '../../img/deaf.svg'
+import BlindIcon from '../../img/blind.svg'
+import MuteIcon from '../../img/mute.svg'
 import SpeechToText from './SpeechToText';
-
+import TextToSpeech from './TextToSpeech';
 
 class SelectDisability extends Component {
     constructor(props) {
@@ -14,6 +14,7 @@ class SelectDisability extends Component {
     }
 
    changeContent = (text) => {
+       console.log(text);
       this.setState({
           content:text
       })
@@ -22,38 +23,46 @@ class SelectDisability extends Component {
     render(){
     return (
         <div className="container">
-        
-       <SpeechToText changeContent={this.changeContent} timeSet ={3000} content={'asdasdasd'}/>
+        <TextToSpeech content={'Please select your disability'} />
             <div className="row">
             <p>{this.state.content}</p>
                 <div className="col-lg-12">
-                <button onClick={()=> this.correct('If you are unable to see say blind')} id ="starttalk"> In case audio doesnt work</button>
-                <h1>We understand you</h1>
-                    <p>please select your disability</p>
                 </div>
             </div>
-                <div className="row">
+            <div className="row card" id="bla">
+            <div className="row"></div>
+            <p id="disability-text">Disability</p>
                 <Link to={'/signup/deaf'} key="deaf">
-                    <div className="col-lg-4 col-sm-12">
-                        <p>I cannot speak</p>
-                        <img src={DeafIcon} alt="" className="disability-icon"/>
+                    <div className="dcol-lg-4 col-sm-12">
+                        {/* <p>I cannot speak</p> */}
+                        <div className="circle-container" >
+                        <img src={DeafIcon} alt="" className="disability-icon circle-icon" id="deaf-circle"/>
+                        </div>
+                        
                     </div>
                 </Link>
                 <Link to={'/signup/blind'} key="blind">
                 <div className="col-lg-4 col-sm-12">
-                    <p>I cannot see</p>
-                        <img src={BlindIcon} alt="" className="disability-icon"/>
+                        <div className="circle-container" >
+                        <img src={BlindIcon} alt="" className="disability-icon circle-icon" id="blind-circle"/>
+                        </div>
+                        
                     </div>
                 </Link>
                 <Link to={'/signup/mute'} key="mute">
                 <div className="col-lg-4 col-sm-12">
-                    <p>I cannot speak and talk</p>
-                        <img src={MuteIcon} alt="" className="disability-icon"/>
+                        <div className="rcircle-container" >
+                        <img src={MuteIcon} alt="" className="disability-icon circle-icon" id="mute-circle"/>
+                        </div>
+                        
                     </div>
                 </Link>
+                
+                <SpeechToText changeContent={this.changeContent} timeSet ={3000}/>
     
                 </div>
             </div>
+
     )
     }
 }
