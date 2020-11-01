@@ -23,7 +23,7 @@ class SelectDisability extends Component {
     render(){
     return (
         <div className="container">
-        <TextToSpeech content={'Please select your disability'} />
+        <TextToSpeech content={'Please select an option, if you are blind please say blind'} />
             <div className="row card" style={{marginTop:'50px', marginBottom:'50px'}}>
             <div className="col-lg-12">
             <p>{this.state.content}</p>
